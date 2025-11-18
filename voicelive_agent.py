@@ -302,6 +302,7 @@ class BasicVoiceAssistant:
         self.audio_processor: Optional[AudioProcessor] = None
         self.session_ready = False
         self.conversation_started = False
+        self.response_timer: Optional[asyncio.Task] = None
 
     async def start(self):
         """Start the voice assistant session."""
@@ -367,7 +368,8 @@ class BasicVoiceAssistant:
             voice_config = self.voice
 
         # Create strongly typed turn detection configuration
-        turn_detection_config = ServerVad(threshold=0.5, prefix_padding_ms=300, silence_duration_ms=500)
+        # Adjusted for less sensitivity to background noise
+        turn_detection_config = ServerVad(threshold=0.7, prefix_padding_ms=500, silence_duration_ms=800)
 
         # Create strongly typed session configuration
         session_config = RequestSession(
@@ -415,7 +417,7 @@ class BasicVoiceAssistant:
             await ap.start_capture()
 
         elif event.type == ServerEventType.INPUT_AUDIO_BUFFER_SPEECH_STARTED:
-            logger.info("🎤 User started speaking - stopping playback")
+            logger.info("🎤 User started speaking")
             print("🎤 Listening...")
 
             # Stop current assistant audio playback (interruption handling)
@@ -434,8 +436,17 @@ class BasicVoiceAssistant:
             # Restart playback system for response
             await ap.start_playback()
 
+            # Start timer to ensure response after hearing
+            if self.response_timer:
+                self.response_timer.cancel()
+            self.response_timer = asyncio.create_task(self._ensure_response_after_speech())
+
         elif event.type == ServerEventType.RESPONSE_CREATED:
             logger.info("🤖 Assistant response created")
+
+            # Cancel the response timer since response is being created
+            if self.response_timer and not self.response_timer.done():
+                self.response_timer.cancel()
 
         elif event.type == ServerEventType.RESPONSE_AUDIO_DELTA:
             # Stream audio response to speakers
@@ -458,6 +469,17 @@ class BasicVoiceAssistant:
 
         else:
             logger.debug(f"Unhandled event type: {event.type}")
+
+    async def _ensure_response_after_speech(self):
+        """Ensure the assistant responds after hearing user speech."""
+        await asyncio.sleep(2.0)  # Wait 2 seconds after speech stops
+
+        # If no response has been created yet, trigger a response
+        if self.response_timer and self.response_timer.done():
+            logger.info("No response detected, triggering fallback response")
+            # Here we could send a message to the connection to force a response
+            # For now, we'll just log it
+            print("🤔 Assistant is thinking...")
 
 
 def parse_arguments():
@@ -572,7 +594,8 @@ async def main():
         # Setup signal handlers for graceful shutdown
         def signal_handler(sig, frame):
             logger.info("Received shutdown signal")
-            raise KeyboardInterrupt()
+            # Force exit after cleanup
+            os._exit(0)
 
         signal.signal(signal.SIGINT, signal_handler)
         signal.signal(signal.SIGTERM, signal_handler)

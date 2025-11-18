@@ -1,8 +1,8 @@
-# Amigo Robõ - Agente Educacional de Voz
+# Amigo Robô - Agente Educacional de Voz
 
 ## 📚 Descrição do Projeto
 
-O **Amigo Robõ** é um agente educacional inteligente desenvolvido para ajudar crianças de 4 a 7 anos a aprender palavras de forma divertida e interativa através de conversas por voz. O projeto utiliza tecnologias avançadas de IA da Microsoft Azure para criar uma experiência educacional segura, acolhedora e envolvente.
+O **Amigo Robô** é um agente educacional inteligente desenvolvido para ajudar crianças de 4 a 7 anos a aprender palavras de forma divertida e interativa através de conversas por voz. O projeto utiliza tecnologias avançadas de IA da Microsoft Azure para criar uma experiência educacional segura, acolhedora e envolvente.
 
 ### 🎯 Objetivo do Agente
 
@@ -28,7 +28,7 @@ O agente tem como missão principal auxiliar no desenvolvimento linguístico de 
 
 ## 🤖 IA Responsável (CAIRA - Conversational AI Responsible AI)
 
-Este projeto foi desenvolvido com uma forte base nos princípios de **Inteligência Artificial Responsável** para garantir uma experiência segura, justa e confiável para as crianças. A implementação desses princípios é um pilar central do "Amigo Robõ".
+Este projeto foi desenvolvido com uma forte base nos princípios de **Inteligência Artificial Responsável** para garantir uma experiência segura, justa e confiável para as crianças. A implementação desses princípios é um pilar central do "Amigo Robô".
 
 - **Segurança e Confiabilidade:** As instruções do agente foram cuidadosamente elaboradas para que ele use sempre um tom "gentil, positivo e animado", criando um ambiente de aprendizado seguro onde a criança se sente encorajada.
 
@@ -207,16 +207,18 @@ eduvoice-agent/
 
 ## 🌟 Futuras Melhorias e Implementações
 
-Para tornar o "Amigo Robõ" ainda mais cativante e educativo, planejo as seguintes melhorias:
+Para tornar o "Amigo Robô" ainda mais cativante e educativo, planejo as seguintes melhorias:
 
-- **Imagens Minimamente Animadas:** Integrar imagens ou GIFs simples que reajam às respostas da criança (por exemplo, um personagem sorrindo ao acertar uma palavra) para aumentar o engajamento visual.
-- **Nível Avançado com IA Generativa:** Adicionar um modo de "criação de histórias", onde o agente usaria IA generativa para construir pequenas narrativas a partir de palavras fornecidas pela criança, estimulando a criatividade e a imaginação.
+- **Estabilização e Refinamento:** O projeto ainda está em uma fase inicial ("cru") e não funciona 100%. Uma prioridade é estabilizar o funcionamento geral e refinar a experiência.
+- **Ajuste Fino da Conversação:** Calibrar os tempos de interrupção, fala e escuta para tornar o diálogo mais natural e responsivo.
 - **Melhoria na Recepção de Áudio:** Otimizar a captura de áudio para funcionar melhor com diferentes microfones e em ambientes variados.
 - **Filtragem de Ruído Ambiente:** Implementar algoritmos de filtragem de som para reduzir ruídos de fundo e focar na voz da criança, melhorando a precisão do reconhecimento de fala.
+- **Imagens Minimamente Animadas:** Integrar imagens ou GIFs simples que reajam às respostas da criança para aumentar o engajamento visual.
+- **Nível Avançado com IA Generativa:** Adicionar um modo de "criação de histórias", onde o agente usaria IA generativa para construir pequenas narrativas a partir de palavras fornecidas pela criança, estimulando a criatividade.
 
 ## 👨‍💻 Autora
 
-**Alessandra** - Desenvolvedora do Amigo Robõ
+**Alessandra** - Desenvolvedora do Amigo Robô
 
 ---
 
