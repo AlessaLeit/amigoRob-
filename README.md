@@ -211,6 +211,8 @@ Para tornar o "Amigo Robõ" ainda mais cativante e educativo, planejo as seguint
 
 - **Imagens Minimamente Animadas:** Integrar imagens ou GIFs simples que reajam às respostas da criança (por exemplo, um personagem sorrindo ao acertar uma palavra) para aumentar o engajamento visual.
 - **Nível Avançado com IA Generativa:** Adicionar um modo de "criação de histórias", onde o agente usaria IA generativa para construir pequenas narrativas a partir de palavras fornecidas pela criança, estimulando a criatividade e a imaginação.
+- **Melhoria na Recepção de Áudio:** Otimizar a captura de áudio para funcionar melhor com diferentes microfones e em ambientes variados.
+- **Filtragem de Ruído Ambiente:** Implementar algoritmos de filtragem de som para reduzir ruídos de fundo e focar na voz da criança, melhorando a precisão do reconhecimento de fala.
 
 ## 👨‍💻 Autora
 
