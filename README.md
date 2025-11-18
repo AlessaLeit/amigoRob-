@@ -104,6 +104,9 @@ uv run python voicelive_agent.py --model gpt-4o-realtime-preview --verbose
 
 ## 📸 Prints e Demonstrações
 
+### 🎥 Vídeo de Demonstração
+[Assista ao vídeo completo dos testes em ação](https://youtu.be/xkjY8GYSQco?si=9pfabasblHY0p8o1)
+
 ### 1. Criação do Agente no Azure Foundry
 Nesta etapa, eu criei o agente na plataforma Azure AI Studio (Foundry). Foi aqui que defini as instruções base, o comportamento e o modelo de IA que o agente utilizaria.
 ![Criação do Agente](images/criacao_agente.png)
