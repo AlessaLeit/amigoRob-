@@ -15,7 +15,7 @@ O agente tem como missão principal auxiliar no desenvolvimento linguístico de 
 ## 🚀 Funcionalidades
 
 ### Agente VoiceLive (Tempo Real)
-- **Conversação em tempo real** usando Azure VoiceLive SDK
+- **Conversação em tempo real** utilizando o Azure VoiceLive SDK
 - **Reconhecimento de fala** contínuo e natural
 - **Síntese de voz** com voz brasileira 
 - **Interrupção inteligente** - permite que a criança interrompa o agente
@@ -26,9 +26,21 @@ O agente tem como missão principal auxiliar no desenvolvimento linguístico de 
 - **Respostas contextuais** baseadas em instruções específicas
 - **Gerenciamento automático** de ciclo de vida do agente
 
+## 🤖 IA Responsável (CAIRA - Conversational AI Responsible AI)
+
+Este projeto foi desenvolvido com uma forte base nos princípios de **Inteligência Artificial Responsável** para garantir uma experiência segura, justa e confiável para as crianças. A implementação desses princípios é um pilar central do "Amigo Robõ".
+
+- **Segurança e Confiabilidade:** As instruções do agente foram cuidadosamente elaboradas para que ele use sempre um tom "gentil, positivo e animado", criando um ambiente de aprendizado seguro onde a criança se sente encorajada.
+
+- **Privacidade e Segurança:** O agente é explicitamente proibido de solicitar qualquer tipo de dado pessoal, como nomes completos ou informações sensíveis. Essa regra, definida nas instruções do sistema, protege ativamente a privacidade dos pequenos usuários.
+
+- **Inclusão:** O design acolhedor e as correções positivas foram pensados para incluir crianças com diferentes ritmos de aprendizado, garantindo que ninguém se sinta frustrado ou desmotivado.
+
+- **Transparência e Responsabilidade:** Através de instruções claras no código (visíveis no arquivo `voicelive_agent.py`) e nesta documentação, o comportamento do agente torna-se previsível. Como desenvolvedora, assumi a responsabilidade de definir esses limites éticos para garantir que a IA opere de forma segura.
+
 ## 🛠️ Tecnologias Utilizadas
 
-- **Azure VoiceLive SDK** - Para conversação em tempo real
+- **Azure VoiceLive SDK** - Para a conversação em tempo real
 - **Azure AI Agent Framework** - Para criação de agentes inteligentes
 - **Azure Speech Services** - Para reconhecimento e síntese de voz
 - **Azure AI Foundry** - Plataforma de desenvolvimento de agentes
@@ -38,7 +50,7 @@ O agente tem como missão principal auxiliar no desenvolvimento linguístico de 
 
 ## 📋 Pré-requisitos
 
-- Python 3.13 ou superior
+- Ter Python 3.13 ou superior
 - Conta Azure com acesso aos serviços:
   - Azure AI Foundry
   - Azure Speech Services
@@ -51,7 +63,6 @@ O agente tem como missão principal auxiliar no desenvolvimento linguístico de 
 ### 1. Clonagem do Repositório
 ```bash
 git clone https://github.com/seu-usuario/eduvoice-agent.git
-cd eduvoice-agent
 ```
 
 ### 2. Instalação de Dependências
@@ -94,39 +105,26 @@ uv run python voicelive_agent.py --model gpt-4o-realtime-preview --verbose
 ## 📸 Prints e Demonstrações
 
 ### 1. Criação do Agente no Azure Foundry
+Nesta etapa, eu criei o agente na plataforma Azure AI Studio (Foundry). Foi aqui que defini as instruções base, o comportamento e o modelo de IA que o agente utilizaria.
 ![Criação do Agente](images/criacao_agente.png)
 
 ### 2. Alteração de Fala e Resposta
+Aqui, eu personalizei a voz do agente e testei as respostas no playground do Azure AI Studio. Isso me permitiu ajustar o tom e o estilo de interação antes de integrar o código.
 ![Alteração de Fala](images/alteracao_fala.png)
 
 ### 3. Cópia do Código do Agente
+Após configurar o agente no portal, o Azure AI Studio gerou um código base em Python. Esta imagem ilustra o momento em que copiei esse código para iniciar o desenvolvimento local.
 ![Cópia do Código](images/copia_cod_agente.png)
 
 ### 4. Alterações e Testes
+Com o código base em meu ambiente local, realizei as alterações necessárias para adaptar o agente, como a integração com o VoiceLive SDK e a lógica de áudio.
 ![Alterações e Testes](images/alteracoes_testes.png)
 
 ### 5. Testes de Execução
+Finalmente, esta imagem exibe o agente em execução no meu terminal. Após iniciar o script, ele ficou pronto para ouvir, processar a fala e responder em tempo real.
 ![Testes de Execução](images/testes_execucao.png)
 
-### 3. Logs de Execução do VoiceLive Agent
-```
-🎙️  Basic Voice Assistant with Azure VoiceLive SDK
-==================================================
-2025-11-17 21:52:32,931 - __main__ - INFO - Using API key credential
-2025-11-17 21:52:32,931 - __main__ - INFO - Connecting to VoiceLive API with model gpt-4o-realtime-preview
-2025-11-17 21:52:33,595 - __main__ - INFO - AudioProcessor initialized with 24kHz PCM16 mono audio
-2025-11-17 21:52:33,595 - __main__ - INFO - Setting up voice conversation session...
-2025-11-17 21:52:33,602 - __main__ - INFO - Session configuration sent
-2025-11-17 21:52:33,662 - __main__ - INFO - Audio playback system ready
-2025-11-17 21:52:33,662 - __main__ - INFO - Voice assistant ready! Start speaking...
-============================================================
-🎤 VOICE ASSISTANT READY
-Start speaking to begin conversation
-Press Ctrl+C to exit
-============================================================
-```
-
-### 4. Exemplos de Interação
+### 6. Exemplos de Interação
 - **Criança:** "Gato"
 - **Agente:** "Muito bem! Você falou gato!"
 
@@ -141,6 +139,12 @@ Press Ctrl+C to exit
 4. **Análise**: Verifica se a palavra está correta ou precisa de correção
 5. **Resposta**: Fornece feedback positivo e educativo
 6. **Continuação**: Mantém conversa até interrupção manual
+1. **Inicialização**: O agente que desenvolvi conecta-se aos serviços Azure e configura o sistema de áudio.
+2. **Pronto para Conversar**: O sistema aguarda a entrada de voz.
+3. **Reconhecimento**: A fala da criança é processada em tempo real.
+4. **Análise**: O sistema verifica se a palavra está correta ou precisa de correção.
+5. **Resposta**: O agente fornece um feedback positivo e educativo.
+6. **Continuação**: A conversa é mantida até uma interrupção manual.
 
 ## 📚 Ações Funcionais Implementadas
 
@@ -197,24 +201,20 @@ eduvoice-agent/
 
 ### Problemas Comuns
 
-1. **Erro de Modelo Não Suportado**
-   - Solução: Use `--model gpt-4o-realtime-preview`
+1.  **Erro de Modelo Não Suportado**: Use o argumento `--model gpt-4o-realtime-preview`.
+2.  **Problemas de Áudio**: Verifique se o microfone e os alto-falantes estão funcionando e se o aplicativo tem permissão para usá-los.
+3.  **Erros de Autenticação**: Confira se as chaves de API e a região no arquivo `.env` estão corretas.
 
-2. **Erro de Loop Fechado**
-   - Solução: Correção aplicada na versão atual
+## 🌟 Futuras Melhorias e Implementações
 
-3. **Problemas de Áudio**
-   - Verifique microfone e alto-falantes
-   - Teste permissões de áudio do sistema
+Para tornar o "Amigo Robõ" ainda mais cativante e educativo, planejo as seguintes melhorias:
 
-4. **Erros de Autenticação**
-   - Verifique chaves de API no arquivo `.env`
-   - Confirme região dos serviços Azure
-
+- **Imagens Minimamente Animadas:** Integrar imagens ou GIFs simples que reajam às respostas da criança (por exemplo, um personagem sorrindo ao acertar uma palavra) para aumentar o engajamento visual.
+- **Nível Avançado com IA Generativa:** Adicionar um modo de "criação de histórias", onde o agente usaria IA generativa para construir pequenas narrativas a partir de palavras fornecidas pela criança, estimulando a criatividade e a imaginação.
 
 ## 👨‍💻 Autora
 
-**Alessandra** - Desenvolvimento do Amigo Robõ
+**Alessandra** - Desenvolvedora do Amigo Robõ
 
 ---
 
