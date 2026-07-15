@@ -1,53 +1,6 @@
-import { useState } from "react";
 import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
-interface Theme {
-  id: string;
-  name: string;
-  icon: string;
-  color: string;
-  words: string[];
-}
-
-const themes: Theme[] = [
-  {
-    id: "animals",
-    name: "Animais",
-    icon: "🐱",
-    color: "bg-blue-100",
-    words: ["gato", "cachorro", "leão", "elefante", "pássaro"],
-  },
-  {
-    id: "colors",
-    name: "Cores",
-    icon: "🎨",
-    color: "bg-pink-100",
-    words: ["vermelho", "azul", "amarelo", "verde", "roxo"],
-  },
-  {
-    id: "fruits",
-    name: "Frutas",
-    icon: "🍎",
-    color: "bg-green-100",
-    words: ["maçã", "banana", "morango", "laranja", "uva"],
-  },
-  {
-    id: "numbers",
-    name: "Números",
-    icon: "1️⃣",
-    color: "bg-yellow-100",
-    words: ["um", "dois", "três", "quatro", "cinco"],
-  },
-  {
-    id: "shapes",
-    name: "Formas",
-    icon: "⭕",
-    color: "bg-purple-100",
-    words: ["círculo", "quadrado", "triângulo", "estrela", "coração"],
-  },
-];
+import { THEMES } from "@/lib/themeWords";
 
 export default function ThemeSelect() {
   const [, setLocation] = useLocation();
@@ -78,7 +31,7 @@ export default function ThemeSelect() {
 
       {/* Theme Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl w-full mb-8">
-        {themes.map((theme) => (
+        {THEMES.map((theme) => (
           <button
             key={theme.id}
             onClick={() => handleThemeSelect(theme.id)}
